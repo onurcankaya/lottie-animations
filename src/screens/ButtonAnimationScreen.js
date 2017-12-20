@@ -7,20 +7,33 @@ export default class ButtonAnimation extends React.Component {
     super(props)
 
     this.state = {
-      progress: new Animated.Value(0)
+      progress: new Animated.Value(0),
+      menuVisible: true
     }
   }
 
   handlePressButton = () => {
-    Animated.timing(this.state.progress, {
-      toValue: 0.5,
-      duration: 2000,
-    }).start()
+    if (this.state.menuVisible) {
+      Animated.timing(this.state.progress, {
+        toValue: 0.5,
+        duration: 2000
+      }).start()
+      this.setState({ menuVisible: false })
+    } else {
+      Animated.timing(this.state.progress, {
+        toValue: 0,
+        duration: 2000
+      }).start()
+      this.setState({ menuVisible: true })  
+    }
   }
 
   render() {
     return (
-      <TouchableOpacity onPress={this.handlePressButton}>
+      <TouchableOpacity
+        onPress={this.handlePressButton}
+        activeOpacity={0.5}
+      >
         <LottieView
           style={{
             width: 720,
