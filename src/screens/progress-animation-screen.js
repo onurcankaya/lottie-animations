@@ -26,7 +26,7 @@ export default class ProgressAnimation extends React.Component {
 
   handleFail = () => {
     Animated.timing(this.state.progress, {
-      toValue: 1,
+      toValue: 0.97,
       duration: 6000
     }).start()
   }
