@@ -10,6 +10,12 @@ import {
 import rightArrow from '../images/right-arrow.png'
 
 export default class App extends React.Component {
+  handlePressBasicAnimation = () => {
+    this.props.navigator.push({
+      screen: 'BasicAnimationScreen'
+    })
+  }
+
   handlePressLoadingAnimation = () => {
     this.props.navigator.push({
       screen: 'LoadingAnimationScreen'
@@ -22,15 +28,15 @@ export default class App extends React.Component {
     })
   }
 
-  handlePressButtonAnimation = () => {
+  handlePressButtonTransitionAnimation = () => {
     this.props.navigator.push({
-      screen: 'ButtonAnimationScreen'
+      screen: 'ButtonTransitionAnimationScreen'
     })
   }
 
-  handlePressCheckmarkAnimation = () => {
+  handlePressScreenTransitionAnimation = () => {
     this.props.navigator.push({
-      screen: 'CheckmarkAnimationScreen'
+      screen: 'ScreenTransitionAnimationScreen'
     })
   }
 
@@ -41,6 +47,16 @@ export default class App extends React.Component {
           Lottie Animations
         </Text>
         <View style={styles.buttonsContainer}>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            style={styles.button}
+            onPress={this.handlePressBasicAnimation}
+          >
+            <Text style={styles.buttonText}>
+              Basic Animation
+            </Text>
+            <Image source={rightArrow} />
+          </TouchableOpacity>
           <TouchableOpacity
             activeOpacity={0.5}
             style={styles.button}
@@ -57,27 +73,27 @@ export default class App extends React.Component {
             onPress={this.handlePressProgressAnimation}
           >
             <Text style={styles.buttonText}>
-              Progress Animation
+              Callback Animation
             </Text>
             <Image source={rightArrow} />
           </TouchableOpacity>
           <TouchableOpacity
             activeOpacity={0.5}
             style={styles.button}
-            onPress={this.handlePressButtonAnimation}
+            onPress={this.handlePressButtonTransitionAnimation}
           >
             <Text style={styles.buttonText}>
-              Button Animation
+              Button Transition Animation
             </Text>
             <Image source={rightArrow} />
           </TouchableOpacity>
           <TouchableOpacity
             activeOpacity={0.5}
             style={styles.button}
-            onPress={this.handlePressCheckmarkAnimation}
+            onPress={this.handlePressScreenTransitionAnimation}
           >
             <Text style={styles.buttonText}>
-              Checkmark Animation
+              Screen Transition Animation
             </Text>
             <Image source={rightArrow} />
           </TouchableOpacity>
@@ -97,6 +113,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 30,
     textAlign: 'center',
+    fontFamily: 'Verdana'
   },
   buttonsContainer: {
     paddingTop: 20,
@@ -106,10 +123,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ddd',
-    marginVertical: 20,
+    marginVertical: 10,
   },
   buttonText: {
     padding: 20,
-    fontSize: 18
+    fontSize: 18,
   },
 });
