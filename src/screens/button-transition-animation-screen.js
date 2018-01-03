@@ -18,16 +18,16 @@ export default class ButtonAnimation extends React.Component {
   render() {
     return (
       <AnimatedButton
-        duration={2000}
+        duration={5000}
         toggled={this.state.menuToggled}
         onPress={this.handlePress}
-        fromValue={0.1}
-        toValue={0.4}
-        source={require('../images/button-animation.json')}
+        fromValue={0}
+        toValue={1}
+        source={require('../images/heart-animation.json')}
         style={{
-          width: 720,
+          width: 600,
           height: 600,
-          right: 85,
+          right: 55,
           top: -60,
         }}
       />
