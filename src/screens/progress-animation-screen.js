@@ -18,11 +18,9 @@ export default class ProgressAnimation extends React.Component {
       }
 
       let toValue = next / 100;
-      if (toValue > 0.8) {
+      if (toValue > 0.7) {
         toValue = 1;
       }
-
-      console.warn(toValue);
 
       // animate to next value
       Animated.timing(this.state.progress, {
