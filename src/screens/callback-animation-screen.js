@@ -1,40 +1,40 @@
-import React from "react";
+import React from 'react'
 import {
   Animated,
   View,
   TouchableOpacity,
   Text,
   StyleSheet
-} from "react-native";
-import LottieView from "lottie-react-native";
+} from 'react-native'
+import LottieView from 'lottie-react-native'
 
 export default class CallbackAnimation extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       progress: new Animated.Value(0)
-    };
+    }
   }
 
   handleSuccess = () => {
     Animated.timing(this.state.progress, {
       toValue: 0.47,
       duration: 6000
-    }).start();
-  };
+    }).start()
+  }
 
   handleFail = () => {
     Animated.timing(this.state.progress, {
       toValue: 0.97,
       duration: 6000
-    }).start();
-  };
+    }).start()
+  }
 
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={this.handleSuccess}
@@ -57,21 +57,21 @@ export default class CallbackAnimation extends React.Component {
             top: 50,
             left: 30
           }}
-          source={require("../images/callback-animation.json")}
+          source={require('../images/callback-animation.json')}
           progress={this.state.progress}
         />
       </View>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   buttonStyle: {
-    backgroundColor: "#ddd",
+    backgroundColor: '#ddd',
     width: 100
   },
   buttonText: {
     padding: 10,
-    textAlign: "center"
+    textAlign: 'center'
   }
-});
+})

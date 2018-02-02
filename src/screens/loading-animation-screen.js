@@ -11,12 +11,14 @@ export default class LoadingAnimation extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <LottieView
-          ref={animation => {this.animation = animation}}
+          ref={animation => {
+            this.animation = animation
+          }}
           style={{
             width: 200,
             height: 200,
             top: 70,
-            left: 45,
+            left: 45
           }}
           source={require('../images/timeshifter-spinner.json')}
           loop={true}

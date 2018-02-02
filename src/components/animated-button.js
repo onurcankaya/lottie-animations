@@ -7,16 +7,20 @@ export default class AnimatedButton extends React.Component {
     super(props)
 
     this.state = {
-      progress: new Animated.Value(this.props.toggled ? this.props.toValue : this.props.fromValue)
+      progress: new Animated.Value(
+        this.props.toggled ? this.props.toValue : this.props.fromValue
+      )
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    const toValue = nextProps.toggled ? this.props.toValue : this.props.fromValue
+    const toValue = nextProps.toggled
+      ? this.props.toValue
+      : this.props.fromValue
     this.animate(toValue)
   }
 
-  animate = (toValue) => {
+  animate = toValue => {
     Animated.timing(this.state.progress, {
       toValue,
       duration: this.props.duration

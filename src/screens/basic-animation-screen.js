@@ -9,14 +9,18 @@ export default class BasicAnimation extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View
+        style={{
+          flex: 1
+        }}
+      >
         <LottieView
-          ref={animation => {this.animation = animation}}
+          ref={animation => {
+            this.animation = animation
+          }}
           style={{
-            width: 500,
-            height: 500,
-            right: 30,
-            top: 10,
+            width: 400,
+            height: 400
           }}
           source={require('../images/react-logo-animation.json')}
         />

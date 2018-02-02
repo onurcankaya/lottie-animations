@@ -10,12 +10,14 @@ export default class LoadingAnimation extends React.Component {
   render() {
     return (
       <LottieView
-        ref={animation => {this.animation = animation}}
+        ref={animation => {
+          this.animation = animation
+        }}
         style={{
           width: 200,
           height: 200,
           top: 60,
-          left: 45,
+          left: 45
         }}
         source={require('../images/checkmark-animation.json')}
         loop={true}
